@@ -139,9 +139,7 @@ form{
 .front, .back {   
 	backface-visibility: hidden;
 	position: absolute;
-    top: 50%;  /* position the top  edge of the element at the middle of the parent */
-     /* position the left edge of the element at the middle of the parent */
-
+    top: 50%; 
     transform: translateY(-50%);
     color: white;
     background: rgba(9, 9, 9, 0.525);
@@ -159,9 +157,9 @@ form{
     padding: 20px 0;
 }
 .back {
-    
+    z-index: 1;
     padding: 20px 0;
-	transform: rotateY(180deg);
+	transform:translateY(-50%) rotateY(180deg);
     display: grid;
     align-items: center;
     justify-items: center;
