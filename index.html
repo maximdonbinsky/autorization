@@ -30,6 +30,11 @@
                             <input class="input__button button" type="button" value="Далее">
                             <div class="question">Забыли логин?</div>
                         </div> 
+                        <div class="info">
+                            <img class="contacts"  src="img/contact_new_icon_181092.svg" alt="contacts" srcset="">
+                            <img class="dogovor" src="img/dogovor.svg" alt="dogovor" srcset="">
+                            <img class="telegram" src="img/telega.svg" alt="telegram" srcset="">              
+                        </div> 
                     </div>
                     <div class="back">
                         <div class="logo"><img src="img/top_logolawity4.png" alt=""></div>
@@ -40,18 +45,16 @@
                             <span><input class="input__button exit" type="button" value="&#9001;"> <input type="submit" value="&#9002;" name="send"></span>
                             <div class="question">Забыли пароль?</div>
                         </div> 
+                        <div class="info">
+                            <img class="contacts" src="img/contact_new_icon_181092.svg" alt="contacts" srcset="">
+                            <img class="dogovor" src="img/dogovor.svg" alt="dogovor" srcset="">
+                            <img class="telegram" src="img/telega.svg" alt="telegram" srcset="">              
+                        </div> 
                     </div>
                 </form>
-            </div>
-            <div class="info">
-                <img id="contacts" src="img/contact_new_icon_181092.svg" alt="contacts" srcset="">
-                <img id="dogovor" src="img/dogovor.svg" alt="dogovor" srcset="">
-                <img id="telegram" src="img/telega.svg" alt="telegram" srcset="">              
-            </div>                 
+            </div>                       
         </div>   
-               
     </div>
-    
      <div class="contacts__modal">
            <div class="contacts__info">           
                 <a href="https://t.me/lawityhelpdeskbot">
@@ -83,7 +86,7 @@
     </div>
     <div class="contacts__modal-mobile">
         <div class="contacts__modal-close">
-            <img src="img/close.svg" alt="close" srcset="">
+            <img src="../img/close.svg" alt="close" srcset="">
         </div> 
         <div class="contacts__mobile">
             <div class="contacts__info-mobile">           
@@ -134,18 +137,22 @@
         const contacts__modal = document.querySelector('.contacts__modal');
         const contacts__modal_mobile = document.querySelector('.contacts__modal-mobile');
         const contacts__modal_close= document.querySelector('.contacts__modal-close');
-
-        contacts.onclick = ()=>{
-            if(contacts__modal.classList.contains("active__modal")){
-                    contacts__modal.style.transform = "scale(0)";
-                    contacts__modal.classList.remove("active__modal");
-            }else{
-                    contacts__modal.style.transform = "scale(1)";
-                    contacts__modal.classList.add("active__modal");
-                }
+        const contacts = document.querySelectorAll(".contacts");
+        for (let i = 0; i < contacts.length; i++) {
+            contacts[i].onclick = ()=>{
+                console.log(1)
+                if(contacts__modal.classList.contains("active__modal")){
+                        contacts__modal.style.transform = "scale(0)";
+                        contacts__modal.classList.remove("active__modal");
+                }else{
+                        contacts__modal.style.transform = "scale(1)";
+                        contacts__modal.classList.add("active__modal");
+                    }
+            }
         }
+        
         document.onclick = (e)=>{
-            if (e.target.id != "contacts") {             
+            if (e.target.className != "contacts") {             
                     if(contacts__modal.style.transform = "scale(1)"){
                         contacts__modal.style.transform = "scale(0)";
                         contacts__modal.classList.remove("active__modal");
@@ -153,10 +160,12 @@
             }         
         }
         if (screen.width < 415) {
-            contacts.onclick = ()=>{
+            for (let i = 0; i < contacts.length; i++) {
+            contacts[i].onclick = ()=>{
                 contacts__modal_mobile.classList.add("showAnimationModal");
                 setTimeout(() => contacts__modal_mobile.classList.remove('showAnimationModal'), 500); 
                 contacts__modal_mobile.style.display = 'block';
+            }
             }
         }
         contacts__modal_close.onclick = () =>{
