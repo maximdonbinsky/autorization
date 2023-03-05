@@ -325,7 +325,7 @@ form{
     height: auto;
     flex-direction: column;
     justify-content: space-between;
-    height: 90vh;
+    height: 70vh;
 }
 .contacts__info-mobile{
     margin: 40px 0;
