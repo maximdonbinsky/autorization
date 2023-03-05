@@ -129,17 +129,7 @@ form{
 	width: 260px;
     height: 50%;
 }
-@media (max-width:415px) {
-    .flip-container, .front, .back {
-        width: 260px;
-        height: 45%;
-    }
-}
-@media (max-width:380px) {
-    .flip-container, .front, .back {
-        height: 55%;
-    }
-}
+
 .flipper {   
 	transition: 0.6s;
 	transform-style: preserve-3d;
@@ -157,10 +147,32 @@ form{
     box-shadow: 0 0 20px 10px white;
     border-radius: 10px;
 }
-@media (max-width:380px) {
+
+@media (max-width:821px) {
     .front, .back {   
         position: absolute;
-        top: -70px;
+        top: 70px;
+        left: 0;      
+    }
+}
+@media (max-width:550px) {
+    .front, .back {   
+        position: absolute;
+        top: -130px;
+        left: 0;      
+    }
+}
+@media (max-width:415px) {
+    .front, .back {   
+        position: absolute;
+        top: -20px;
+        left: 0;      
+    }
+}
+@media (max-width:376px) {
+    .front, .back {   
+        position: absolute;
+        top: -90px;
         left: 0;      
     }
 }
